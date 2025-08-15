@@ -36,7 +36,7 @@ AnimationClip:
       value: {fileID: -5469576182422125601, guid: 164c4df18e668a6498c8f8d526614dff, type: 3}
     - time: 0.23333333
       value: {fileID: -2937281097504627154, guid: e1e91ceffcd8e7141ad71c046cff5181, type: 3}
-    - time: 0.26666668
+    - time: 0.46666667
       value: {fileID: -2559913057836601251, guid: 87b9570bae94ba1429f1f30620dcb3f5, type: 3}
     attribute: m_Sprite
     path: 
@@ -74,7 +74,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.3
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -101,7 +101,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.26666668
+  - time: 0.46666667
     functionName: NormalAttackFinish
     data: 
     objectReferenceParameter: {fileID: 0}
