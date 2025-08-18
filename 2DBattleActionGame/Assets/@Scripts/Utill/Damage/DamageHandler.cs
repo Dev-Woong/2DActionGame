@@ -23,6 +23,11 @@ public class DamageHandler : MonoBehaviour
             return;
         if (attackData.AttackSFX != null)
             SFXManager.s_Instance.PlaySFX(attackData.AttackSFX);
+        if (attackData.AttackEffectPrefabName != "")
+        {
+            var attackEffect = ObjectPoolManager.instance.GetObject(attackData.AttackEffectPrefabName);
+            attackEffect.transform.position = new Vector3(transform.position.x + attackData.EffectPos.x, transform.position.y + attackData.EffectPos.y, 0);
+        }
 
         _damagedTargets.Clear();
         _minYPos = _boxCollider2D.bounds.min.y;
@@ -92,14 +97,7 @@ public class DamageHandler : MonoBehaviour
         if (attackData.HitCount >= 1)
         {
             int currentHits = 0;
-            Vector3 effectPos = new Vector3(attackData.EffectPos.x, attackData.EffectPos.y, 0);
-
-            if (attackData.AttackEffectPrefabName != "")
-            {
-                var attackEffect = ObjectPoolManager.instance.GetObject(attackData.AttackEffectPrefabName);
-                attackEffect.transform.position = transform.position + attackData.EffectPos;
-            }
-            else yield return null;
+            Vector3 effectPos = new Vector3(attackData.EffectPos.x, attackData.EffectPos.y, 0);            
             if (target.GetComponent<ObjectStatus>().OnKnockBack == true && target.GetComponent<ObjectStatus>().OnSuperArmor == false) // 공격 넉백 프로세스
             {
                 float xKnockbackForce = attackData.KnockBackForce.x;

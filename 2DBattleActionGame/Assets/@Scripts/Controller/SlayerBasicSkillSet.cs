@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerSkillSet : MonoBehaviour
+public class SlayerBasicSkillSet : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _rigidbody;

@@ -20,7 +20,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   AttackName: NormalAtk_3
-  CoolTime: 2
+  CoolTime: 1.5
   Damage: 17
   HitCount: 1
   AttackHitType: 1
@@ -30,8 +30,8 @@ MonoBehaviour:
   SetDebuffType: 0
   StartAttackPoint: {x: -1, y: -0.25}
   AttackRange: {x: 1.5, y: 2}
-  RangeUpOffsetZ: 0
-  RangeDownOffsetZ: -0.5
+  RangeUpOffsetZ: 0.1
+  RangeDownOffsetZ: -0.3
   UsingLevelSystem: 0
   AttackCurLevel: 0
   AttackMaxLevel: 0
