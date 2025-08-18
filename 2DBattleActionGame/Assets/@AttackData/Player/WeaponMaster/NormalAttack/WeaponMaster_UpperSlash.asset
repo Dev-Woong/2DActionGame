@@ -39,7 +39,7 @@ MonoBehaviour:
   Hp: 0
   Mp: 0
   CanMove: 0
-  SuperArmor: 0
+  SuperArmor: 1
   UseKnockBack: 1
   KnockBackForce: {x: 0.2, y: 5}
   AttackCasting: 0

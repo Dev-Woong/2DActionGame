@@ -10,45 +10,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c8b4a06f2d518b48b9ac8b6e2aa3211, type: 3}
-  m_Name: Illusion_Slash2
+  m_Name: IllusionSlash_FinishAttack
   m_EditorClassIdentifier: 
-  AttackType: 1
+  AttackType: 2
   WeaponType: 1
   AttackDescription: 
   AttackIcon: {fileID: 0}
   TargetLayer:
     serializedVersion: 2
     m_Bits: 8
-  AttackName: "\uD658\uC601\uAC80\uBB34"
+  AttackName: 
   CoolTime: 0
-  Damage: 10
-  HitCount: 1
+  Damage: 20
+  HitCount: 7
   AttackHitType: 1
   AttackElement: 0
   SpecialAbility: 0
   SetBuffType: 0
   SetDebuffType: 0
-  StartAttackPoint: {x: -1, y: -0.25}
-  AttackRange: {x: 1, y: 1.5}
+  StartAttackPoint: {x: 0, y: 0}
+  AttackRange: {x: 0, y: 0}
   RangeUpOffsetZ: 0
-  RangeDownOffsetZ: -0.5
+  RangeDownOffsetZ: 0
   UsingLevelSystem: 1
   AttackCurLevel: 1
   AttackMaxLevel: 20
-  LevelIncreaseValue: 1
+  LevelIncreaseValue: 2
   Hp: 0
   Mp: 0
   CanMove: 0
-  SuperArmor: 0
+  SuperArmor: 1
   UseKnockBack: 0
   KnockBackForce: {x: 0, y: 0}
   AttackCasting: 0
   CastingTime: 0
-  ProjectilePrefabName: 
-  ProjectileForce: 0
+  ProjectilePrefabName: illusionSlash_FinishAttack
+  ProjectileForce: 10
   AttackSFX: {fileID: 0}
-  AttackEffectPrefabName: illusionSlashVFX2
-  EffectPos: {x: 0.5, y: 0, z: 0}
+  AttackEffectPrefabName: 
+  EffectPos: {x: 0, y: 0, z: 0}
   HitEffectPrefabName: 
   HitEffectPos: {x: 0, y: 0}
   UseCameraShake: 0

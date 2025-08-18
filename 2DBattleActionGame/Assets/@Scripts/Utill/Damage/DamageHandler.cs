@@ -26,7 +26,18 @@ public class DamageHandler : MonoBehaviour
         if (attackData.AttackEffectPrefabName != "")
         {
             var attackEffect = ObjectPoolManager.instance.GetObject(attackData.AttackEffectPrefabName);
-            attackEffect.transform.position = new Vector3(transform.position.x + attackData.EffectPos.x, transform.position.y + attackData.EffectPos.y, 0);
+            float moveForce = attackEffect.GetComponent<SkillEffectMoving>()._moveForce;
+            if (transform.localScale.x == -1)
+            {
+                attackEffect.transform.position = new Vector3(transform.position.x - attackData.EffectPos.x, transform.position.y + attackData.EffectPos.y, 0);
+                attackEffect.transform.localScale *= -1;
+                moveForce *= -1;
+            }
+            else
+            {
+                attackEffect.transform.position = new Vector3(transform.position.x + attackData.EffectPos.x, transform.position.y + attackData.EffectPos.y, 0);
+            }
+            attackEffect.GetComponent<Rigidbody2D>().AddForce(Vector2.right * moveForce, ForceMode2D.Impulse);
         }
 
         _damagedTargets.Clear();
@@ -40,13 +51,10 @@ public class DamageHandler : MonoBehaviour
         {
             foreach (var hit in hits)
             {
-                Debug.Log(hits.Length);
                 if (hit.transform.position.z >= transform.position.z + attackData.RangeDownOffsetZ && hit.transform.position.z <= transform.position.z + attackData.RangeUpOffsetZ)
                 {
-                    
                     if (hit.bounds.min.y >= (_hitStartPos.y - (attackData.AttackRange.y / 2)) && hit.bounds.min.y <= (_hitStartPos.y + (attackData.AttackRange.y / 2)))
                     {
-                        
                         IDamageAble dmg = hit.GetComponent<IDamageAble>();
                         if (dmg != null && !_damagedTargets.Contains(dmg))
                         {
@@ -91,6 +99,11 @@ public class DamageHandler : MonoBehaviour
             }
             
         }
+    }
+    public void CreateRangeAttack(AttackData attackData)
+    {
+        var rangeAttack = ObjectPoolManager.instance.GetObject(attackData.ProjectilePrefabName);
+        //TODO
     }
     IEnumerator HitDamage(IDamageAble dmg, AttackData attackData, GameObject target)
     {

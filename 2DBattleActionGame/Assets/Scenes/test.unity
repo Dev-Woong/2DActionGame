@@ -1088,6 +1088,9 @@ MonoBehaviour:
   - objectName: illusionSlashVFX1
     prefab: {fileID: 5943058928659489797, guid: b5bea151481f8024f8fb78ca575d24d1, type: 3}
     count: 3
+  - objectName: illusionSlash_FinishAttack
+    prefab: {fileID: 435090495298169381, guid: d601c887e563e3948ba67017a037315c, type: 3}
+    count: 3
 --- !u!4 &1209193620
 Transform:
   m_ObjectHideFlags: 0
