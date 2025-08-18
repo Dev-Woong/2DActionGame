@@ -35,20 +35,20 @@ public class DamageHandler : MonoBehaviour
         {
             foreach (var hit in hits)
             {
-                Debug.Log("MultiTargetProcess.1");
-                if (hit.transform.position.z >= transform.position.z - attackData.RangeDownOffsetZ && hit.transform.position.z <= transform.position.z + attackData.RangeUpOffsetZ)
+                Debug.Log(hits.Length);
+                if (hit.transform.position.z >= transform.position.z + attackData.RangeDownOffsetZ && hit.transform.position.z <= transform.position.z + attackData.RangeUpOffsetZ)
                 {
-                    Debug.Log("MultiTargetProcess.2");
+                    
                     if (hit.bounds.min.y >= (_hitStartPos.y - (attackData.AttackRange.y / 2)) && hit.bounds.min.y <= (_hitStartPos.y + (attackData.AttackRange.y / 2)))
                     {
-                        Debug.Log("MultiTargetProcess.3");
+                        
                         IDamageAble dmg = hit.GetComponent<IDamageAble>();
                         if (dmg != null && !_damagedTargets.Contains(dmg))
                         {
                             _damagedTargets.Add(dmg);
                             if (hit.GetComponent<DamageAbleBase>().DamageAble == true)
                             {
-                                Debug.Log("MultiTargetProcess.4");
+                                
                                 _coDamageProcess = StartCoroutine(HitDamage(dmg, attackData, hit.gameObject));
                             }
                         }
@@ -67,7 +67,7 @@ public class DamageHandler : MonoBehaviour
             }
             for (int i = 0; i < hits.Length; i++)
             {
-                if (hits[i].transform.position.z >= transform.position.z - attackData.RangeDownOffsetZ&& hits[i].transform.position.z <= transform.position.z + attackData.RangeUpOffsetZ)
+                if (hits[i].transform.position.z >= transform.position.z + attackData.RangeDownOffsetZ&& hits[i].transform.position.z <= transform.position.z + attackData.RangeUpOffsetZ)
                 {
                     curDistance = transform.position.x - hits[i].transform.position.x;
                     if (curDistance < 0)

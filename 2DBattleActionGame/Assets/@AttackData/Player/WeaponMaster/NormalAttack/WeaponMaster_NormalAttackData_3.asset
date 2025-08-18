@@ -28,10 +28,10 @@ MonoBehaviour:
   SpecialAbility: 0
   SetBuffType: 0
   SetDebuffType: 0
-  StartAttackPoint: {x: 0, y: 0}
-  AttackRange: {x: 0.8, y: 1.5}
-  RangeUpOffsetZ: 0.4
-  RangeDownOffsetZ: -0.1
+  StartAttackPoint: {x: -1, y: -0.25}
+  AttackRange: {x: 1.5, y: 2}
+  RangeUpOffsetZ: 0
+  RangeDownOffsetZ: -0.5
   UsingLevelSystem: 0
   AttackCurLevel: 0
   AttackMaxLevel: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
   CanMove: 0
   SuperArmor: 0
   UseKnockBack: 1
-  KnockBackForce: {x: 0.2, y: 5}
+  KnockBackForce: {x: 0.2, y: 3}
   AttackCasting: 0
   CastingTime: 0
   ProjectilePrefabName: 

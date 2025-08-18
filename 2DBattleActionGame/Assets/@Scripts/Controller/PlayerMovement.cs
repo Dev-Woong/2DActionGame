@@ -5,22 +5,22 @@ public class PlayerMovement: MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Transform _transform;
     private Animator _animator;
-    private PlayerAttackController _playerAttackController;
-    public float Speed = 2f;
-    private const float _runningInputReady = 0.5f;
-    private float _canRunningTime = 0;
-    private bool _canRunning = false;
+    [SerializeField] ObjectStatus _objectStatus;
+    public float Speed = 1.5f;
+    public float RunningSpeed = 3;
+    private const float _runningInputReady = 1f;
+    public float _canRunningInput = 0;
+    public bool _canRunning = false;
     private float _playerPositionZ= 0;
     private bool _isMoving = false;
-    private float _playerYPos = 0;
-    private float _moveInputTime = 0;
+    //private float _playerYPos = 0;
     private void Awake()
     {
         _playerPositionZ = transform.position.y;
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _transform = GetComponent<Transform>();
-        _playerAttackController = GetComponent<PlayerAttackController>();
+        _objectStatus = GetComponent<ObjectStatus>();
     }
     void Start()
     {   
@@ -37,15 +37,22 @@ public class PlayerMovement: MonoBehaviour
     {
         if (Input.GetButton("Horizontal")||Input.GetButton("Vertical"))
         {
-            if (_playerAttackController.IsAttacking == false)
+            if (_objectStatus.IsAttacking == false)
             {
                 float h = Input.GetAxisRaw("Horizontal");
                 float v = Input.GetAxisRaw("Vertical");
-                Vector3 _moveDir = new Vector3(h, v, v / 100);
+                Vector3 _moveDir = new Vector3(h, v, v).normalized;
+                if (_canRunning == false) 
+                { 
+                    _animator.SetFloat("Speed", Speed); 
+                    transform.Translate(Time.deltaTime * Speed * new Vector3( _moveDir.x,  _moveDir.y, _moveDir.z)); 
+                }
+                else 
+                { 
+                    _animator.SetFloat("Speed", RunningSpeed);
+                    transform.Translate(Time.deltaTime * RunningSpeed * new Vector3( _moveDir.x, _moveDir.y,  _moveDir.z));
+                }
                 _animator.SetBool("IsMove", true);
-                _animator.SetFloat("Speed", Speed);
-                _rigidbody.linearVelocity = Time.fixedDeltaTime * new Vector3(Speed * _moveDir.x, Speed * _moveDir.y);
-                _transform.Translate(0, 0, _moveDir.z);
                 if (h < 0)
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
@@ -59,24 +66,29 @@ public class PlayerMovement: MonoBehaviour
         else
         {
             _isMoving = false;
-            _rigidbody.linearVelocity = Vector3.zero;
             _animator.SetBool("IsMove", false);
+            if (_canRunningInput >= 0)
+            {
+                _canRunning = true;
+            }
+            else { _canRunning = false; }
         }
     }
     public void SetRunningCondition()
     {
-        _canRunningTime -= Time.deltaTime;
+        _canRunningInput -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            _canRunningTime = _runningInputReady;
+            _canRunningInput = _runningInputReady;
         }
     }
     public void Update()
     {
-        
+        SetRunningCondition();
+        Movement();
     }
     void FixedUpdate()
     {
-        Movement();
+        
     }
 }
