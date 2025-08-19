@@ -107,6 +107,13 @@ AnimationClip:
     floatParameter: 200
     intParameter: 0
     messageOptions: 0
+  - time: 0.06666667
+    functionName: CanInputAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.1
     functionName: CreateMeleeAttackBox
     data: 
@@ -122,7 +129,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.4
-    functionName: NormalAttackFinish
+    functionName: CanMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

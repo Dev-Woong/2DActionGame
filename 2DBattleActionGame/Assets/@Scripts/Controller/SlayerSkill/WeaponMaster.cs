@@ -16,10 +16,6 @@ public class WeaponMaster : MonoBehaviour
     {
         IllusionSlash();
     }
-    public void SkillFinished()
-    {
-        _objectStatus.IsAttacking  = false;
-    }
     #region Illusion_Slash
     [Header("환영검무")]
     [SerializeField] private AttackData _illusionSlashData;
@@ -30,6 +26,7 @@ public class WeaponMaster : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W)&&_illusionSlashCoolTime<=0)
         {
             _rigidbody.linearVelocity = Vector3.zero;
+            _objectStatus.CanMove = false;
             _objectStatus.IsAttacking = true;
             _animator.SetTrigger("IllusionSlash");
             _illusionSlashCoolTime = _illusionSlashData.CoolTime;   

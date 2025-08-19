@@ -18,21 +18,25 @@ public class PlayerAttackController : MonoBehaviour
     public void NormalAttack()
     {
         // 일반공격 트리거명: NormalAtk
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && _objectStatus.IsAttacking == false)
         {
             _objectStatus.IsAttacking = true;
-            
+            _objectStatus.CanMove = false;
             _animator.SetBool("IsMove", false);
             _animator.SetTrigger("NormalAtk");
         }
         InputRightArrow = Input.GetKey(KeyCode.RightArrow);
         InputLeftArrow = Input.GetKey(KeyCode.LeftArrow);
     }
-    public void NormalAttackFinish() // Animation Event
+    public void CanInputAttack() // Animation Event
     {
         _objectStatus.IsAttacking = false;
     }
-    public void VelocityZero()
+    public void CanMove() // Animation Event
+    {
+        _objectStatus.CanMove=true;
+    }
+    public void VelocityZero()// Animation Event
     {
         _rigidbody.linearVelocity = Vector3.zero;
     }

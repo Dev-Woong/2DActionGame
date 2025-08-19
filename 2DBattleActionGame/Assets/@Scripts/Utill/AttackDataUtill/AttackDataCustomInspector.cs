@@ -339,6 +339,12 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_projectilePrefabName);
                     EditorGUILayout.PropertyField(_projectileForce);
                     EditorGUILayout.Space();
+                    EditorGUILayout.LabelField("투사체 생성 지점", EditorStyles.miniBoldLabel);
+                    EditorGUILayout.PropertyField(_startAttackPoint);
+                    EditorGUILayout.Space();
+                    EditorGUILayout.PropertyField(_rangeDownOffsetZ);
+                    EditorGUILayout.PropertyField(_rangeUpOffsetZ);
+                    EditorGUILayout.Space();
                     EditorGUILayout.PropertyField(_usingLevelSystem);
                     if (aData.UsingLevelSystem)
                     {

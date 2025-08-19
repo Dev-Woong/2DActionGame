@@ -20,7 +20,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   AttackName: "\uD658\uC601\uAC80\uBB34"
-  CoolTime: 1
+  CoolTime: 6
   Damage: 10
   HitCount: 1
   AttackHitType: 1
@@ -28,9 +28,9 @@ MonoBehaviour:
   SpecialAbility: 0
   SetBuffType: 0
   SetDebuffType: 0
-  StartAttackPoint: {x: -1, y: -0.25}
-  AttackRange: {x: 1, y: 1.5}
-  RangeUpOffsetZ: 0
+  StartAttackPoint: {x: -1.5, y: -0.5}
+  AttackRange: {x: 2.2, y: 2}
+  RangeUpOffsetZ: 0.3
   RangeDownOffsetZ: -0.5
   UsingLevelSystem: 1
   AttackCurLevel: 1

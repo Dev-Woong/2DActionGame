@@ -2,14 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DamageHandler : MonoBehaviour
 {
-    // public Transform target;
     private BoxCollider2D _boxCollider2D;
     private float _minYPos;
     private float _maxXPos;
-    private Vector3 _hitStartPos;
+    private Vector3 _meleeHitStartPos;
     private readonly HashSet<IDamageAble> _damagedTargets = new();
     private readonly WaitForSeconds _interval = new(0.04f);
     private Coroutine _coDamageProcess;
@@ -26,7 +26,7 @@ public class DamageHandler : MonoBehaviour
         if (attackData.AttackEffectPrefabName != "")
         {
             var attackEffect = ObjectPoolManager.instance.GetObject(attackData.AttackEffectPrefabName);
-            float moveForce = attackEffect.GetComponent<SkillEffectMoving>()._moveForce;
+            float moveForce = attackEffect.GetComponent<SkillEffectMoving>().MoveForce;
             if (transform.localScale.x == -1)
             {
                 attackEffect.transform.position = new Vector3(transform.position.x - attackData.EffectPos.x, transform.position.y + attackData.EffectPos.y, 0);
@@ -43,17 +43,17 @@ public class DamageHandler : MonoBehaviour
         _damagedTargets.Clear();
         _minYPos = _boxCollider2D.bounds.min.y;
         _maxXPos = _boxCollider2D.bounds.center.x;
-        _hitStartPos = transform.right*transform.localScale.x + new Vector3(_maxXPos+(attackData.AttackRange.x / 2 * transform.localScale.x) + (attackData.StartAttackPoint.x * transform.localScale.x), _minYPos +(attackData.AttackRange.y/2) + attackData.StartAttackPoint.y, 0);
+        _meleeHitStartPos = transform.right*transform.localScale.x + new Vector3(_maxXPos+(attackData.AttackRange.x / 2 * transform.localScale.x) + (attackData.StartAttackPoint.x * transform.localScale.x), _minYPos +(attackData.AttackRange.y/2) + attackData.StartAttackPoint.y, 0);
         
-        Collider2D[] hits = Physics2D.OverlapBoxAll(_hitStartPos, attackData.AttackRange, 0, attackData.TargetLayer);
-        Debug.DrawLine(_hitStartPos,attackData.AttackRange, Color.red, 2f);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(_meleeHitStartPos, attackData.AttackRange, 0, attackData.TargetLayer);
+        Debug.DrawLine(_meleeHitStartPos,attackData.AttackRange, Color.red, 2f);
         if (attackData.AttackHitType == AttackHitType.MultiTarget)
         {
             foreach (var hit in hits)
             {
                 if (hit.transform.position.z >= transform.position.z + attackData.RangeDownOffsetZ && hit.transform.position.z <= transform.position.z + attackData.RangeUpOffsetZ)
                 {
-                    if (hit.bounds.min.y >= (_hitStartPos.y - (attackData.AttackRange.y / 2)) && hit.bounds.min.y <= (_hitStartPos.y + (attackData.AttackRange.y / 2)))
+                    if (hit.bounds.min.y >= (_meleeHitStartPos.y - (attackData.AttackRange.y / 2)) && hit.bounds.min.y <= (_meleeHitStartPos.y + (attackData.AttackRange.y / 2)))
                     {
                         IDamageAble dmg = hit.GetComponent<IDamageAble>();
                         if (dmg != null && !_damagedTargets.Contains(dmg))
@@ -61,7 +61,6 @@ public class DamageHandler : MonoBehaviour
                             _damagedTargets.Add(dmg);
                             if (hit.GetComponent<DamageAbleBase>().DamageAble == true)
                             {
-                                
                                 _coDamageProcess = StartCoroutine(HitDamage(dmg, attackData, hit.gameObject));
                             }
                         }
@@ -102,9 +101,31 @@ public class DamageHandler : MonoBehaviour
     }
     public void CreateRangeAttack(AttackData attackData)
     {
-        var rangeAttack = ObjectPoolManager.instance.GetObject(attackData.ProjectilePrefabName);
-        //TODO
+        if (attackData.ProjectilePrefabName == "")
+        {
+            Debug.LogWarning("투사체 프리팹이 없습니다!");
+            return;
+        }
+        if (attackData.AttackType != AttackType.Range || attackData == null)
+            return;
+        if (attackData.AttackSFX != null)
+            SFXManager.s_Instance.PlaySFX(attackData.AttackSFX);
+        var rangeAttackObject = ObjectPoolManager.instance.GetObject(attackData.ProjectilePrefabName);
+        float moveForce = attackData.ProjectileForce;
+        if (transform.localScale.x == -1)
+        {
+            rangeAttackObject.transform.position = new Vector3(transform.position.x - attackData.StartAttackPoint.x, transform.position.y + attackData.StartAttackPoint.y, transform.position.z);
+            rangeAttackObject.transform.localScale *= -1;
+            moveForce *= -1;
+        }
+        else
+        {
+            rangeAttackObject.transform.position = new Vector3(transform.position.x + attackData.StartAttackPoint.x, transform.position.y + attackData.StartAttackPoint.y, transform.position.z);
+        }
+        rangeAttackObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * moveForce, ForceMode2D.Impulse);
+        rangeAttackObject.GetComponent<ProjectileController>().TimeCountEventStart=true;
     }
+    
     IEnumerator HitDamage(IDamageAble dmg, AttackData attackData, GameObject target)
     {
         if (attackData.HitCount >= 1)

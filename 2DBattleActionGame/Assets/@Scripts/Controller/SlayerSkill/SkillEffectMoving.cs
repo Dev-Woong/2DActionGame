@@ -4,7 +4,7 @@ using UnityEngine;
 public class SkillEffectMoving : MonoBehaviour
 {
     [SerializeField] Rigidbody2D _rigidbody;
-    public float _moveForce;
+    public float MoveForce;
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();

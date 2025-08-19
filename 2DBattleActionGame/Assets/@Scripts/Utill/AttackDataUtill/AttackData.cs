@@ -7,7 +7,7 @@ public enum WeaponType
 {
     Hand,
     Sword,
-    Gun,
+    Projectile,
     Bow,
     Staff
 }

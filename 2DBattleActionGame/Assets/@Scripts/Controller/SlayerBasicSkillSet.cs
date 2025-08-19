@@ -22,6 +22,7 @@ public class SlayerBasicSkillSet : MonoBehaviour
             _rigidbody.linearVelocity = Vector3.zero;   
             _objectStatus.IsAttacking = true;
             _upperSlashCoolTime = _upperSlashAttackData.CoolTime;
+            
         }
     }
 

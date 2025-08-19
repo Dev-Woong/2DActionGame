@@ -37,7 +37,7 @@ public class PlayerMovement: MonoBehaviour
     {
         if (Input.GetButton("Horizontal")||Input.GetButton("Vertical"))
         {
-            if (_objectStatus.IsAttacking == false)
+            if (_objectStatus.CanMove == true)
             {
                 float h = Input.GetAxisRaw("Horizontal");
                 float v = Input.GetAxisRaw("Vertical");
@@ -86,9 +86,5 @@ public class PlayerMovement: MonoBehaviour
     {
         SetRunningCondition();
         Movement();
-    }
-    void FixedUpdate()
-    {
-        
     }
 }
