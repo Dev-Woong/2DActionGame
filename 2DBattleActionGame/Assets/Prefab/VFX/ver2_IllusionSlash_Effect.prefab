@@ -138,8 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 4123072387150620485}
-  MoveForce: 2
-  LifeTime: 0
+  MoveForce: 1
 --- !u!50 &4123072387150620485
 Rigidbody2D:
   serializedVersion: 5

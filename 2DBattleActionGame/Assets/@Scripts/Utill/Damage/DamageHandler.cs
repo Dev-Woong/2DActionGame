@@ -23,6 +23,8 @@ public class DamageHandler : MonoBehaviour
             return;
         if (attackData.AttackSFX != null)
             SFXManager.s_Instance.PlaySFX(attackData.AttackSFX);
+        if (attackData.VoiceSFX != null)
+            VoiceManager.s_Instance.PlayVoiceSFX(attackData.VoiceSFX);
         if (attackData.AttackEffectPrefabName != "")
         {
             var attackEffect = ObjectPoolManager.instance.GetObject(attackData.AttackEffectPrefabName);
@@ -110,6 +112,8 @@ public class DamageHandler : MonoBehaviour
             return;
         if (attackData.AttackSFX != null)
             SFXManager.s_Instance.PlaySFX(attackData.AttackSFX);
+        if (attackData.VoiceSFX != null)
+            VoiceManager.s_Instance.PlayVoiceSFX(attackData.VoiceSFX);
         var rangeAttackObject = ObjectPoolManager.instance.GetObject(attackData.ProjectilePrefabName);
         float moveForce = attackData.ProjectileForce;
         if (transform.localScale.x == -1)

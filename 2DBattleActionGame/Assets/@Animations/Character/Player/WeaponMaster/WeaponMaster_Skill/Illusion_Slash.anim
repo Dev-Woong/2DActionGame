@@ -298,35 +298,63 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.037037037
+  - time: 0.055555556
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.14814815
+  - time: 0.11111111
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.24074075
+  - time: 0.16666667
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.35185185
+  - time: 0.22222222
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.46296296
+  - time: 0.2777778
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.3888889
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.44444445
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
@@ -340,52 +368,101 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6481481
+  - time: 0.6111111
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.7592593
+  - time: 0.6666667
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8518519
+  - time: 0.7222222
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.9444444
+  - time: 0.7777778
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.037037
+  - time: 0.8333333
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.1481482
+  - time: 0.8703704
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.2222222
+  - time: 0.9259259
     functionName: CreateMeleeAttackBox
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.962963
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.0185186
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.074074
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1296296
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1666666
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2037038
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 72740e45c6228354295b188fd7e91096, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2407408
+    functionName: CreateMeleeAttackBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 22157bf071e57624e94b9ad6473937ca, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

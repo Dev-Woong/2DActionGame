@@ -89,6 +89,7 @@ public class AttackData : ScriptableObject
     public float ProjectileForce;
    
     public AudioClip AttackSFX;
+    public AudioClip VoiceSFX;
     public string AttackEffectPrefabName;
     public Vector3 EffectPos;
 

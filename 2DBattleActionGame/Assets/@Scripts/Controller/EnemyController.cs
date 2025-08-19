@@ -44,7 +44,6 @@ public class EnemyController : DamageAbleBase, IDamageAble
         Vector2 otherPosition = other.transform.position;
         while (curHitCount<hitCount)
         {
-            Debug.Log(curHitCount);
             if (GetComponent<ObjectStatus>().OnKnockBack == true && GetComponent<ObjectStatus>().OnSuperArmor == false) // 공격 넉백 프로세스
             {
                 float xKnockbackForce =other.GetComponent<ProjectileController>().KnockbackForce.x;

@@ -42,7 +42,6 @@ public class PlayerAttackController : MonoBehaviour
     }
     public void OnAttackMove(float xForce) // Animation Event
     {
-        Debug.Log("어택무브호출 성공");
         if (transform.localScale.x == 1)
         {
             if (InputRightArrow == true)

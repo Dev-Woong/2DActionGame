@@ -31,7 +31,7 @@ MonoBehaviour:
   StartAttackPoint: {x: 0.5, y: 0}
   AttackRange: {x: 0, y: 0}
   RangeUpOffsetZ: 0.3
-  RangeDownOffsetZ: -0.5
+  RangeDownOffsetZ: -0.7
   UsingLevelSystem: 1
   AttackCurLevel: 1
   AttackMaxLevel: 20
@@ -47,6 +47,7 @@ MonoBehaviour:
   ProjectilePrefabName: illusionSlash_FinishAttack
   ProjectileForce: 4
   AttackSFX: {fileID: 0}
+  VoiceSFX: {fileID: 8300000, guid: 86b7408fc0efd804a9ad7f0b889003f3, type: 3}
   AttackEffectPrefabName: 
   EffectPos: {x: 0, y: 0, z: 0}
   HitEffectPrefabName: 

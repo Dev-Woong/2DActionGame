@@ -103,6 +103,7 @@ public class AttackDataCustomInspector : Editor
     
     //- 스킬 시전 사운드
     private SerializedProperty _attackSFX;
+    private SerializedProperty _voiceSFX;
 
     //- 스킬 이펙트
     private SerializedProperty _attackEffectName;
@@ -171,6 +172,7 @@ public class AttackDataCustomInspector : Editor
         _projectileForce = serializedObject.FindProperty("ProjectileForce");
 
         _attackSFX = serializedObject.FindProperty("AttackSFX");
+        _voiceSFX = serializedObject.FindProperty("VoiceSFX");
         _attackEffectName = serializedObject.FindProperty("AttackEffectPrefabName");
         _attackEffectPos = serializedObject.FindProperty("EffectPos");
         _hitEffectName = serializedObject.FindProperty("HitEffectPrefabName");
@@ -273,6 +275,7 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_hitEffectName);
                     EditorGUILayout.PropertyField(_hitEffectPos);
                     EditorGUILayout.PropertyField(_attackSFX);
+                    EditorGUILayout.PropertyField(_voiceSFX);
                     if (_attackSFX != null)
                     {
                         if (GUILayout.Button("효과음 재생"))
@@ -386,6 +389,7 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_hitEffectName);
                     EditorGUILayout.PropertyField(_hitEffectPos);
                     EditorGUILayout.PropertyField(_attackSFX);
+                    EditorGUILayout.PropertyField(_voiceSFX);
                     if (_attackSFX != null)
                     {
                         if (GUILayout.Button("효과음 재생"))
@@ -497,6 +501,7 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_hitEffectName);
                     EditorGUILayout.PropertyField(_hitEffectPos);
                     EditorGUILayout.PropertyField(_attackSFX);
+                    EditorGUILayout.PropertyField(_voiceSFX);
                     if (_attackSFX != null)
                     {
                         if (GUILayout.Button("효과음 재생"))
