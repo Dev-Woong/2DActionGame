@@ -52,16 +52,16 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 7256132441946450380, guid: 3db19b8705e419749b4221c30c00e693, type: 3}
-    - time: 0.055555556
+    - time: 0.041666668
       value: {fileID: -4939903528350379597, guid: d75c80832d9b6a548a505b04b33f64ce, type: 3}
-    - time: 0.11111111
+    - time: 0.083333336
       value: {fileID: 5954842948544758126, guid: 97c9e633ed4677d4fbd0b563dff6a197, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 18
+  m_SampleRate: 24
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}

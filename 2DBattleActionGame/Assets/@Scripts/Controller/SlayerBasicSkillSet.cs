@@ -25,6 +25,7 @@ public class SlayerBasicSkillSet : MonoBehaviour
     {
         float forceX = attackData.MoveForceX;
         float forceY = attackData.MoveForceY;
+        
         string effectPrefabName = attackData.MoveEffectPrefabName;
         var moveEffect = ObjectPoolManager.instance.GetObject(effectPrefabName);
 
@@ -34,7 +35,7 @@ public class SlayerBasicSkillSet : MonoBehaviour
             {
                 forceX *= -1;
                 moveEffect.transform.position = new Vector3(transform.position.x - attackData.MoveEffectPos.x, transform.position.y + attackData.MoveEffectPos.y, 0);
-                moveEffect.transform.localScale *= -1;
+                moveEffect.transform.localScale = new Vector3(moveEffect.transform.localScale.x * -1, moveEffect.transform.localScale.y, moveEffect.transform.localScale.z);
                 transform.localScale = new Vector3(-1, 1, 1);
             }
             _rigidbody.linearVelocity = new Vector2(forceX,forceY);
@@ -52,7 +53,7 @@ public class SlayerBasicSkillSet : MonoBehaviour
             {
                 forceX *= -1;
                 moveEffect.transform.position = new Vector3(transform.position.x - attackData.MoveEffectPos.x, transform.position.y + attackData.MoveEffectPos.y, 0);
-                moveEffect.transform.localScale *= -1;
+                moveEffect.transform.localScale = new Vector3(moveEffect.transform.localScale.x, moveEffect.transform.localScale.y, moveEffect.transform.localScale.z);
             }
             _rigidbody.linearVelocity = new Vector2(forceX, forceY);
         }

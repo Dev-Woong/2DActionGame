@@ -32,7 +32,7 @@ public class DamageHandler : MonoBehaviour
             if (transform.localScale.x == -1)
             {
                 attackEffect.transform.position = new Vector3(transform.position.x - attackData.EffectPos.x, transform.position.y + attackData.EffectPos.y, 0);
-                attackEffect.transform.localScale *= -1;
+                attackEffect.transform.localScale  = new Vector3(-1, 1, 1);
                 moveForce *= -1;
             }
             else

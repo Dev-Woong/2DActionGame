@@ -20,7 +20,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   AttackName: "\uB2E8\uACF5\uCC38"
-  CoolTime: 6.3
+  CoolTime: 1
   Damage: 15
   HitCount: 1
   AttackHitType: 1
@@ -38,7 +38,11 @@ MonoBehaviour:
   LevelIncreaseValue: 1
   Hp: 0
   Mp: 0
-  CanMove: 0
+  CanMove: 1
+  MoveForceX: 4
+  MoveForceY: 0
+  MoveEffectPrefabName: DashEffect
+  MoveEffectPos: {x: -0.5, y: -0.5}
   SuperArmor: 0
   UseKnockBack: 1
   KnockBackForce: {x: 1.5, y: 0}
@@ -48,8 +52,8 @@ MonoBehaviour:
   ProjectileForce: 0
   AttackSFX: {fileID: 0}
   VoiceSFX: {fileID: 0}
-  AttackEffectPrefabName: 
-  EffectPos: {x: 0, y: 0, z: 0}
+  AttackEffectPrefabName: DownSlash_Effect
+  EffectPos: {x: 0.8, y: 0, z: 0}
   HitEffectPrefabName: 
   HitEffectPos: {x: 0, y: 0}
   UseCameraShake: 0
