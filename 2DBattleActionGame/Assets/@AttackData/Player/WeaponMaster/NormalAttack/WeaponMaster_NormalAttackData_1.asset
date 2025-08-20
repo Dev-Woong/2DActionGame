@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Bits: 8
   AttackName: NormalAtk_1
   CoolTime: 0
-  Damage: 15
+  Damage: 8
   HitCount: 1
   AttackHitType: 1
   AttackElement: 0

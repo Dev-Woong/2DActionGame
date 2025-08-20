@@ -79,6 +79,10 @@ public class AttackData : ScriptableObject
     public float Hp;
     public float Mp;
     public bool CanMove;
+    public float MoveForceX;
+    public float MoveForceY;
+    public string MoveEffectPrefabName;
+    public Vector2 MoveEffectPos;
     public bool SuperArmor;
     public bool UseKnockBack;
     public Vector2 KnockBackForce;

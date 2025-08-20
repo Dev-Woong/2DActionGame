@@ -83,6 +83,10 @@ public class AttackDataCustomInspector : Editor
 
     // ** 스킬 사용중 이동여부
     private SerializedProperty _canMove;
+    private SerializedProperty _moveForceX;
+    private SerializedProperty _moveForceY;
+    private SerializedProperty _moveEffectPrefabName;
+    private SerializedProperty _moveEffectPos;
 
     // ** 슈퍼아머
     private SerializedProperty _onSuperArmor;
@@ -159,7 +163,13 @@ public class AttackDataCustomInspector : Editor
 
         _hpCost = serializedObject.FindProperty("Hp");
         _mpCost = serializedObject.FindProperty("Mp");
+        
         _canMove = serializedObject.FindProperty("CanMove");
+        _moveForceX = serializedObject.FindProperty("MoveForceX");
+        _moveForceY = serializedObject.FindProperty("MoveForceY");
+        _moveEffectPrefabName = serializedObject.FindProperty("MoveEffectPrefabName");
+        _moveEffectPos = serializedObject.FindProperty("MoveEffectPos");
+
         _onSuperArmor = serializedObject.FindProperty("SuperArmor");
 
         _useKnockBack = serializedObject.FindProperty("UseKnockBack");
@@ -191,8 +201,8 @@ public class AttackDataCustomInspector : Editor
             return;
         }
 
-        AttackData aData = (AttackData)target;
-        if (aData == null)
+        AttackData attackData = (AttackData)target;
+        if (attackData == null)
         {
             Debug.LogError("attackData is null!");
             return;
@@ -201,7 +211,7 @@ public class AttackDataCustomInspector : Editor
         EditorGUILayout.Space();
 
         EditorGUILayout.PropertyField(_attackType);
-        switch (aData.AttackType)
+        switch (attackData.AttackType)
         {
             //근접 공격 타입 인스펙터
             #region MeleeAttackType
@@ -220,11 +230,11 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_attackHitType);
                     EditorGUILayout.PropertyField(_attackElement);
                     EditorGUILayout.PropertyField(_specialAbility);
-                    if (aData.SpecialAbility == AttackSpecialAbility.Buff)
+                    if (attackData.SpecialAbility == AttackSpecialAbility.Buff)
                     {
                         EditorGUILayout.PropertyField(_setBuffType);
                     }
-                    else if (aData.SpecialAbility == AttackSpecialAbility.DeBuff)
+                    else if (attackData.SpecialAbility == AttackSpecialAbility.DeBuff)
                     {
                         EditorGUILayout.PropertyField(_setDebuffType);
                     }
@@ -238,7 +248,7 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_rangeUpOffsetZ);
                     EditorGUILayout.Space();
                     EditorGUILayout.PropertyField(_usingLevelSystem);
-                    if (aData.UsingLevelSystem)
+                    if (attackData.UsingLevelSystem)
                     {
                         EditorGUILayout.PropertyField(_attackCurLevel);
                         EditorGUILayout.PropertyField(_attackMaxLevel);
@@ -253,9 +263,16 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_hpCost);
                     EditorGUILayout.PropertyField(_mpCost);
                     EditorGUILayout.PropertyField(_canMove);
+                    if (attackData.CanMove)
+                    {
+                        EditorGUILayout.PropertyField(_moveForceX);
+                        EditorGUILayout.PropertyField(_moveForceY);
+                        EditorGUILayout.PropertyField(_moveEffectPrefabName);
+                        EditorGUILayout.PropertyField(_moveEffectPos);
+                    }
                     EditorGUILayout.PropertyField(_onSuperArmor);
                     EditorGUILayout.PropertyField(_useKnockBack);
-                    if (aData.UseKnockBack)
+                    if (attackData.UseKnockBack)
                     {
                         EditorGUILayout.PropertyField(_knockBackForce);
                     }
@@ -265,7 +282,7 @@ public class AttackDataCustomInspector : Editor
                 if (_showEffect)
                 {
                     EditorGUILayout.PropertyField(_doAttackCasting);
-                    if (aData.AttackCasting)
+                    if (attackData.AttackCasting)
                     {
                         EditorGUILayout.PropertyField(_attackCastingTime);
                     }
@@ -285,13 +302,13 @@ public class AttackDataCustomInspector : Editor
                                 Debug.LogWarning("플레이모드에선 재생할 수 없습니다.");
                                 return;
                             }
-                            if (Application.isPlaying == false && aData.AttackSFX == null)
+                            if (Application.isPlaying == false && attackData.AttackSFX == null)
                             {
-                                Debug.LogWarning($"attackSFX가 {aData.AttackSFX} 입니다.");
+                                Debug.LogWarning($"attackSFX가 {attackData.AttackSFX} 입니다.");
                                 return;
                             }
-                            OnEditorModePlayClip(aData.AttackSFX);
-                            Debug.Log($"효과음 재생 {aData.AttackSFX}");
+                            OnEditorModePlayClip(attackData.AttackSFX);
+                            Debug.Log($"효과음 재생 {attackData.AttackSFX}");
                         }
                     }
                 }
@@ -301,7 +318,7 @@ public class AttackDataCustomInspector : Editor
                 if (_showCamera)
                 {
                     EditorGUILayout.PropertyField(_useCameraShake);
-                    if (aData.UseCameraShake)
+                    if (attackData.UseCameraShake)
                     {
                         EditorGUILayout.PropertyField(_shakeCameraForce);
                         EditorGUILayout.PropertyField(_shakeCameraDir);
@@ -329,11 +346,11 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_attackHitType);
                     EditorGUILayout.PropertyField(_attackElement);
                     EditorGUILayout.PropertyField(_specialAbility);
-                    if (aData.SpecialAbility == AttackSpecialAbility.Buff)
+                    if (attackData.SpecialAbility == AttackSpecialAbility.Buff)
                     {
                         EditorGUILayout.PropertyField(_setBuffType);
                     }
-                    else if (aData.SpecialAbility == AttackSpecialAbility.DeBuff)
+                    else if (attackData.SpecialAbility == AttackSpecialAbility.DeBuff)
                     {
                         EditorGUILayout.PropertyField(_setDebuffType);
                     }
@@ -349,7 +366,7 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_rangeUpOffsetZ);
                     EditorGUILayout.Space();
                     EditorGUILayout.PropertyField(_usingLevelSystem);
-                    if (aData.UsingLevelSystem)
+                    if (attackData.UsingLevelSystem)
                     {
                         EditorGUILayout.PropertyField(_attackCurLevel);
                         EditorGUILayout.PropertyField(_attackMaxLevel);
@@ -367,7 +384,7 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_mpCost);
                     EditorGUILayout.PropertyField(_onSuperArmor);
                     EditorGUILayout.PropertyField(_useKnockBack);
-                    if (aData.UseKnockBack)
+                    if (attackData.UseKnockBack)
                     {
                         EditorGUILayout.PropertyField(_knockBackForce);
                     }
@@ -378,12 +395,19 @@ public class AttackDataCustomInspector : Editor
                 if (_showEffect)
                 {
                     EditorGUILayout.PropertyField(_doAttackCasting);
-                    if (aData.AttackCasting)
+                    if (attackData.AttackCasting)
                     {
                         EditorGUILayout.PropertyField(_attackCastingTime);
                     }
 
                     EditorGUILayout.PropertyField(_canMove);
+                    if (attackData.CanMove)
+                    {
+                        EditorGUILayout.PropertyField(_moveForceX);
+                        EditorGUILayout.PropertyField(_moveForceY);
+                        EditorGUILayout.PropertyField(_moveEffectPrefabName);
+                        EditorGUILayout.PropertyField(_moveEffectPos);
+                    }
                     EditorGUILayout.PropertyField(_attackEffectName);
                     EditorGUILayout.PropertyField(_attackEffectPos);
                     EditorGUILayout.PropertyField(_hitEffectName);
@@ -399,13 +423,13 @@ public class AttackDataCustomInspector : Editor
                                 Debug.LogWarning("플레이모드에선 재생할 수 없습니다.");
                                 return;
                             }
-                            if (Application.isPlaying == false && aData.AttackSFX == null)
+                            if (Application.isPlaying == false && attackData.AttackSFX == null)
                             {
-                                Debug.LogWarning($"Attack SFX가 {aData.AttackSFX} 입니다.");
+                                Debug.LogWarning($"Attack SFX가 {attackData.AttackSFX} 입니다.");
                                 return;
                             }
-                            OnEditorModePlayClip(aData.AttackSFX);
-                            Debug.Log($"효과음 재생 {aData.AttackSFX}");
+                            OnEditorModePlayClip(attackData.AttackSFX);
+                            Debug.Log($"효과음 재생 {attackData.AttackSFX}");
                         }
                     }
                 }
@@ -415,7 +439,7 @@ public class AttackDataCustomInspector : Editor
                 if (_showCamera)
                 {
                     EditorGUILayout.PropertyField(_useCameraShake);
-                    if (aData.UseCameraShake)
+                    if (attackData.UseCameraShake)
                     {
                         EditorGUILayout.PropertyField(_shakeCameraForce);
                         EditorGUILayout.PropertyField(_shakeCameraDir);
@@ -443,11 +467,11 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_attackHitType);
                     EditorGUILayout.PropertyField(_attackElement);
                     EditorGUILayout.PropertyField(_specialAbility);
-                    if (aData.SpecialAbility == AttackSpecialAbility.Buff)
+                    if (attackData.SpecialAbility == AttackSpecialAbility.Buff)
                     {
                         EditorGUILayout.PropertyField(_setBuffType);
                     }
-                    else if (aData.SpecialAbility == AttackSpecialAbility.DeBuff)
+                    else if (attackData.SpecialAbility == AttackSpecialAbility.DeBuff)
                     {
                         EditorGUILayout.PropertyField(_setDebuffType);
                     }
@@ -461,7 +485,7 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_rangeUpOffsetZ);
                     EditorGUILayout.Space();
                     EditorGUILayout.PropertyField(_usingLevelSystem);
-                    if (aData.UsingLevelSystem)
+                    if (attackData.UsingLevelSystem)
                     {
                         EditorGUILayout.PropertyField(_attackCurLevel);
                         EditorGUILayout.PropertyField(_attackMaxLevel);
@@ -479,9 +503,16 @@ public class AttackDataCustomInspector : Editor
                     EditorGUILayout.PropertyField(_hpCost);
                     EditorGUILayout.PropertyField(_mpCost);
                     EditorGUILayout.PropertyField(_canMove);
+                    if (attackData.CanMove)
+                    {
+                        EditorGUILayout.PropertyField(_moveForceX);
+                        EditorGUILayout.PropertyField(_moveForceY);
+                        EditorGUILayout.PropertyField(_moveEffectPrefabName);
+                        EditorGUILayout.PropertyField(_moveEffectPos);
+                    }
                     EditorGUILayout.PropertyField(_onSuperArmor);
                     EditorGUILayout.PropertyField(_useKnockBack);
-                    if (aData.UseKnockBack)
+                    if (attackData.UseKnockBack)
                     {
                         EditorGUILayout.PropertyField(_knockBackForce);
                     }
@@ -491,7 +522,7 @@ public class AttackDataCustomInspector : Editor
                 if (_showEffect)
                 {
                     EditorGUILayout.PropertyField(_doAttackCasting);
-                    if (aData.AttackCasting)
+                    if (attackData.AttackCasting)
                     {
                         EditorGUILayout.PropertyField(_attackCastingTime);
                     }
@@ -511,13 +542,13 @@ public class AttackDataCustomInspector : Editor
                                 Debug.LogWarning("플레이모드에선 재생할 수 없습니다.");
                                 return;
                             }
-                            if (Application.isPlaying == false && aData.AttackSFX == null)
+                            if (Application.isPlaying == false && attackData.AttackSFX == null)
                             {
-                                Debug.LogWarning($"skillSFX가 {aData.AttackSFX} 입니다.");
+                                Debug.LogWarning($"skillSFX가 {attackData.AttackSFX} 입니다.");
                                 return;
                             }
-                            OnEditorModePlayClip(aData.AttackSFX);
-                            Debug.Log($"효과음 재생 {aData.AttackSFX}");
+                            OnEditorModePlayClip(attackData.AttackSFX);
+                            Debug.Log($"효과음 재생 {attackData.AttackSFX}");
                         }
                     }
                 }
@@ -527,7 +558,7 @@ public class AttackDataCustomInspector : Editor
                 if (_showCamera)
                 {
                     EditorGUILayout.PropertyField(_useCameraShake);
-                    if (aData.UseCameraShake)
+                    if (attackData.UseCameraShake)
                     {
                         EditorGUILayout.PropertyField(_shakeCameraForce);
                         EditorGUILayout.PropertyField(_shakeCameraDir);

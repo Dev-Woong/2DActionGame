@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Bits: 8
   AttackName: NormalAtk_3
   CoolTime: 0
-  Damage: 17
+  Damage: 10
   HitCount: 1
   AttackHitType: 1
   AttackElement: 0

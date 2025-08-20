@@ -144,7 +144,12 @@ public class DamageHandler : MonoBehaviour
                 {
                     xKnockbackForce = -xKnockbackForce;
                 }
-                target.GetComponent<Rigidbody2D>().AddForce(new Vector3(xKnockbackForce, attackData.KnockBackForce.y, 0), ForceMode2D.Impulse);
+                if (target.GetComponent<Rigidbody2D>().linearVelocity.y <= 0)
+                {
+                    target.GetComponent<Rigidbody2D>().AddForce(new Vector3(xKnockbackForce, attackData.KnockBackForce.y+0.35f, 0), ForceMode2D.Impulse);
+                }
+                else 
+                    target.GetComponent<Rigidbody2D>().AddForce(new Vector3(xKnockbackForce, attackData.KnockBackForce.y, 0), ForceMode2D.Impulse);
             }
             while (currentHits < attackData.HitCount)
             {

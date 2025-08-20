@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Bits: 8
   AttackName: NormalAtk_3
   CoolTime: 1.5
-  Damage: 17
+  Damage: 12
   HitCount: 1
   AttackHitType: 1
   AttackElement: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
   CanMove: 0
   SuperArmor: 1
   UseKnockBack: 1
-  KnockBackForce: {x: 0.2, y: 5}
+  KnockBackForce: {x: 0.5, y: 5}
   AttackCasting: 0
   CastingTime: 0
   ProjectilePrefabName: 

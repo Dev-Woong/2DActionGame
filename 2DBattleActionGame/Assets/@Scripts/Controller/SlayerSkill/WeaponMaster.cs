@@ -23,7 +23,7 @@ public class WeaponMaster : MonoBehaviour
     public void IllusionSlash()
     {
         _illusionSlashCoolTime -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.W)&&_illusionSlashCoolTime<=0)
+        if (Input.GetKeyDown(KeyCode.W)&&_illusionSlashCoolTime<=0&&_objectStatus.IsAttacking == false)
         {
             _rigidbody.linearVelocity = Vector3.zero;
             _objectStatus.CanMove = false;

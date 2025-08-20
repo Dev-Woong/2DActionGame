@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Bits: 8
   AttackName: NormalAtk_2
   CoolTime: 0
-  Damage: 12
+  Damage: 9
   HitCount: 1
   AttackHitType: 1
   AttackElement: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
   SetBuffType: 0
   SetDebuffType: 0
   StartAttackPoint: {x: -1, y: -0.25}
-  AttackRange: {x: 1.5, y: 1.3}
+  AttackRange: {x: 1.7, y: 1.3}
   RangeUpOffsetZ: 0.2
   RangeDownOffsetZ: -0.6
   UsingLevelSystem: 0

@@ -41,7 +41,7 @@ public class PlayerMovement: MonoBehaviour
             {
                 float h = Input.GetAxisRaw("Horizontal");
                 float v = Input.GetAxisRaw("Vertical");
-                Vector3 _moveDir = new Vector3(h, v, v).normalized;
+                Vector3 _moveDir = new Vector3(h, v, v);
                 if (_canRunning == false) 
                 { 
                     _animator.SetFloat("Speed", Speed); 
