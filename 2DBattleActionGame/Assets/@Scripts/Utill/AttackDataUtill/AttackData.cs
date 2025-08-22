@@ -53,6 +53,7 @@ public enum SetBuffType
 [CreateAssetMenu(fileName ="NewAttackData", menuName = "Attacks/AttackData")]
 public class AttackData : ScriptableObject
 {
+    public short SkillID;
     public AttackType AttackType;
     public WeaponType WeaponType;
     [TextArea]

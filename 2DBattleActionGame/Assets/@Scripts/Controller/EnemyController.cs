@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyController : DamageAbleBase, IDamageAble
 {
+    BoxCollider2D _boxCollider;
+    private bool _projectileOnHit = false;
     public int CurHp = 100;
-    private readonly WaitForSeconds _interval = new(0.04f);
+    private readonly WaitForSeconds _interval = new(0.2f);
     private Coroutine _coProjectileDamagedProcess;
     [SerializeField]private LayerMask _layerMask;
     public override void OnDamage(float damage, WeaponType wType)
@@ -20,13 +22,11 @@ public class EnemyController : DamageAbleBase, IDamageAble
     {
         if (other.gameObject.layer == 10)
         {
-            Debug.Log("타겟 탐색");
             if (other.GetComponent<ProjectileController>().TargetLayer == _layerMask)
             {
-                Debug.Log("타겟 충돌정보 일치");
                 if (other.GetComponent<ProjectileController>().HitCount > 0)
                 {
-                    Debug.Log("코루틴 시작");
+                    _projectileOnHit = true;
                     _coProjectileDamagedProcess = StartCoroutine(DamagedProjectile(other.gameObject));
                 }
                 else
@@ -36,19 +36,26 @@ public class EnemyController : DamageAbleBase, IDamageAble
             }
         }
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 10)
+        {
+            _projectileOnHit = false;
+        }
+    }
     IEnumerator DamagedProjectile(GameObject other)
     {
         int hitCount = other.GetComponent<ProjectileController>().HitCount;
         int curHitCount = 0;
         yield return null;
         Vector2 otherPosition = other.transform.position;
-        while (curHitCount<hitCount)
+        while (curHitCount < hitCount && _projectileOnHit == true)
         {
             if (GetComponent<ObjectStatus>().OnKnockBack == true && GetComponent<ObjectStatus>().OnSuperArmor == false) // 공격 넉백 프로세스
             {
-                float xKnockbackForce =other.GetComponent<ProjectileController>().KnockbackForce.x;
+                float xKnockbackForce = other.GetComponent<ProjectileController>().KnockbackForce.x;
                 GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
-                
+
                 if (transform.position.x < otherPosition.x)
                 {
                     xKnockbackForce = -xKnockbackForce;
@@ -59,10 +66,11 @@ public class EnemyController : DamageAbleBase, IDamageAble
             yield return _interval;
             curHitCount++;
         }
+        yield return null;  
     }
-    void Start()
+    void Awake()
     {
-        
+        _boxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame

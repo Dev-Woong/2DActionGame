@@ -103,6 +103,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: UseSkillFalse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.06666667
     functionName: CreateMeleeAttackBox
     data: 
@@ -125,16 +132,16 @@ AnimationClip:
     intParameter: 1
     messageOptions: 0
   - time: 0.5
-    functionName: CanMove
+    functionName: DangongchamCoolTimeProcess
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11400000, guid: a5553e40fc9ab3642b0155c4f7872845, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.5
-    functionName: DangongchamCoolTimeProcess
+    functionName: CanMove
     data: 
-    objectReferenceParameter: {fileID: 11400000, guid: a5553e40fc9ab3642b0155c4f7872845, type: 2}
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

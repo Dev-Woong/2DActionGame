@@ -11,6 +11,7 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] ObjectStatus _objectStatus;
 
     public int NormalAtkCount=0;
+    public bool useSkill = false;
     public bool InputRightArrow = false;
     public bool InputLeftArrow = false;
     #endregion
@@ -27,6 +28,10 @@ public class PlayerAttackController : MonoBehaviour
         }
         InputRightArrow = Input.GetKey(KeyCode.RightArrow);
         InputLeftArrow = Input.GetKey(KeyCode.LeftArrow);
+    }
+    public void UseSkillFalse() // Animation Event
+    {
+        useSkill = false;
     }
     public void CanInputAttack() // Animation Event
     {

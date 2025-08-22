@@ -22,13 +22,13 @@ MonoBehaviour:
   AttackName: 
   CoolTime: 0
   Damage: 20
-  HitCount: 7
+  HitCount: 5
   AttackHitType: 1
   AttackElement: 0
   SpecialAbility: 0
   SetBuffType: 0
   SetDebuffType: 0
-  StartAttackPoint: {x: 0.5, y: 0}
+  StartAttackPoint: {x: 0, y: 0}
   AttackRange: {x: 0, y: 0}
   RangeUpOffsetZ: 0.3
   RangeDownOffsetZ: -0.7
@@ -39,6 +39,10 @@ MonoBehaviour:
   Hp: 0
   Mp: 0
   CanMove: 0
+  MoveForceX: 0
+  MoveForceY: 0
+  MoveEffectPrefabName: 
+  MoveEffectPos: {x: 0, y: 0}
   SuperArmor: 0
   UseKnockBack: 1
   KnockBackForce: {x: 3, y: 0}

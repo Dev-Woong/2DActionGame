@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8b4a06f2d518b48b9ac8b6e2aa3211, type: 3}
   m_Name: WeaponMaster_UpperSlash
   m_EditorClassIdentifier: 
+  SkillID: 0
   AttackType: 1
   WeaponType: 1
   AttackDescription: 
@@ -32,13 +33,17 @@ MonoBehaviour:
   AttackRange: {x: 1.5, y: 2}
   RangeUpOffsetZ: 0
   RangeDownOffsetZ: -0.5
-  UsingLevelSystem: 0
-  AttackCurLevel: 0
-  AttackMaxLevel: 0
-  LevelIncreaseValue: 0
+  UsingLevelSystem: 1
+  AttackCurLevel: 1
+  AttackMaxLevel: 50
+  LevelIncreaseValue: 1
   Hp: 0
   Mp: 0
   CanMove: 0
+  MoveForceX: 0
+  MoveForceY: 0
+  MoveEffectPrefabName: 
+  MoveEffectPos: {x: 0, y: 0}
   SuperArmor: 1
   UseKnockBack: 1
   KnockBackForce: {x: 0.5, y: 5}

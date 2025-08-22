@@ -7,6 +7,7 @@ public class SlayerBasicSkillSet : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private ObjectStatus _objectStatus;
+    [SerializeField] private PlayerAttackController _playerAttackController;
     [SerializeField] private bool InputRightArrow;
     [SerializeField] private bool InputLeftArrow;
 
@@ -14,7 +15,8 @@ public class SlayerBasicSkillSet : MonoBehaviour
     {
         _animator = GetComponent<Animator>();   
         _objectStatus = GetComponent<ObjectStatus>();
-        _rigidbody = GetComponent<Rigidbody2D>();   
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _playerAttackController = GetComponent<PlayerAttackController>();
     }
     private void InputBool()
     {
@@ -66,10 +68,11 @@ public class SlayerBasicSkillSet : MonoBehaviour
     public void UpperSlash()
     {
         _upperSlashCoolTime -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Z)&&_upperSlashCoolTime<=0 && _objectStatus.IsAttacking == false)
+        if (Input.GetKeyDown(KeyCode.Z)&&_upperSlashCoolTime<=0 && _playerAttackController.useSkill == false)
         {
             _rigidbody.linearVelocity = Vector3.zero;   
             _objectStatus.IsAttacking = true;
+            _playerAttackController.useSkill = true;
             _objectStatus.CanMove = false;
             _animator.SetTrigger("UpperSlash");
             _upperSlashCoolTime = _upperSlashAttackData.CoolTime;
@@ -82,11 +85,12 @@ public class SlayerBasicSkillSet : MonoBehaviour
     private float _dangongchamCoolTime;
     public void DangongCham()
     {
-        _dangongchamCoolTime -= Time.deltaTime; 
-        if (Input.GetKeyDown(KeyCode.G) && _dangongchamCoolTime <= 0 &&_objectStatus.IsAttacking == false)
+        _dangongchamCoolTime -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.G) && _dangongchamCoolTime <= 0 && _playerAttackController.useSkill == false)
         {
             _animator.SetBool("IsMove", false);
             _objectStatus.IsAttacking = true;
+            _playerAttackController.useSkill = true;
             _objectStatus.CanMove = false;
             _animator.SetTrigger("Dangongcham");
             _animator.SetInteger("DangongchamStack",_dangongchamStack);

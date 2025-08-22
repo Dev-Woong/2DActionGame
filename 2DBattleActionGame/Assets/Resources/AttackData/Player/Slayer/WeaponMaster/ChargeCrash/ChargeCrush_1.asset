@@ -10,44 +10,49 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c8b4a06f2d518b48b9ac8b6e2aa3211, type: 3}
-  m_Name: WeaponMaster_NormalAttackData_2
+  m_Name: ChargeCrush_1
   m_EditorClassIdentifier: 
+  SkillID: 0
   AttackType: 1
   WeaponType: 1
   AttackDescription: 
   AttackIcon: {fileID: 0}
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 8
-  AttackName: NormalAtk_2
-  CoolTime: 0
-  Damage: 9
-  HitCount: 1
+    m_Bits: 0
+  AttackName: "\uCC28\uC9C0\uD06C\uB798\uC2DC_\uB3CC\uC9C4"
+  CoolTime: 9
+  Damage: 14
+  HitCount: 3
   AttackHitType: 1
   AttackElement: 0
   SpecialAbility: 0
   SetBuffType: 0
   SetDebuffType: 0
   StartAttackPoint: {x: -1, y: -0.25}
-  AttackRange: {x: 1.7, y: 1.3}
+  AttackRange: {x: 0.5, y: 1.5}
   RangeUpOffsetZ: 0.2
   RangeDownOffsetZ: -0.6
-  UsingLevelSystem: 0
-  AttackCurLevel: 0
-  AttackMaxLevel: 0
-  LevelIncreaseValue: 0
+  UsingLevelSystem: 1
+  AttackCurLevel: 1
+  AttackMaxLevel: 40
+  LevelIncreaseValue: 1
   Hp: 0
   Mp: 0
   CanMove: 0
-  SuperArmor: 0
-  UseKnockBack: 1
-  KnockBackForce: {x: 0.5, y: 0}
+  MoveForceX: 0
+  MoveForceY: 0
+  MoveEffectPrefabName: 
+  MoveEffectPos: {x: 0, y: 0}
+  SuperArmor: 1
+  UseKnockBack: 0
+  KnockBackForce: {x: 0, y: 0}
   AttackCasting: 0
   CastingTime: 0
   ProjectilePrefabName: 
   ProjectileForce: 0
   AttackSFX: {fileID: 0}
-  VoiceSFX: {fileID: 8300000, guid: 87790afdf850eef47b80ebb9b6bc842c, type: 3}
+  VoiceSFX: {fileID: 0}
   AttackEffectPrefabName: 
   EffectPos: {x: 0, y: 0, z: 0}
   HitEffectPrefabName: 

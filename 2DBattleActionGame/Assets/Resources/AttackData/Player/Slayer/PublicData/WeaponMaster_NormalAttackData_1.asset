@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c8b4a06f2d518b48b9ac8b6e2aa3211, type: 3}
-  m_Name: Dangongcham_1
+  m_Name: WeaponMaster_NormalAttackData_1
   m_EditorClassIdentifier: 
+  SkillID: 0
   AttackType: 1
   WeaponType: 1
   AttackDescription: 
@@ -19,9 +20,9 @@ MonoBehaviour:
   TargetLayer:
     serializedVersion: 2
     m_Bits: 8
-  AttackName: "\uB2E8\uACF5\uCC38"
-  CoolTime: 1
-  Damage: 15
+  AttackName: NormalAtk_1
+  CoolTime: 0
+  Damage: 8
   HitCount: 1
   AttackHitType: 1
   AttackElement: 0
@@ -29,31 +30,31 @@ MonoBehaviour:
   SetBuffType: 0
   SetDebuffType: 0
   StartAttackPoint: {x: -1, y: -0.25}
-  AttackRange: {x: 1.5, y: 2}
-  RangeUpOffsetZ: 0
+  AttackRange: {x: 1.5, y: 1.3}
+  RangeUpOffsetZ: 0.1
   RangeDownOffsetZ: -0.5
-  UsingLevelSystem: 1
-  AttackCurLevel: 1
-  AttackMaxLevel: 20
-  LevelIncreaseValue: 1
+  UsingLevelSystem: 0
+  AttackCurLevel: 0
+  AttackMaxLevel: 0
+  LevelIncreaseValue: 0
   Hp: 0
   Mp: 0
-  CanMove: 1
-  MoveForceX: 4
+  CanMove: 0
+  MoveForceX: 0
   MoveForceY: 0
-  MoveEffectPrefabName: DashEffect
-  MoveEffectPos: {x: -0.5, y: -0.5}
+  MoveEffectPrefabName: 
+  MoveEffectPos: {x: 0, y: 0}
   SuperArmor: 0
   UseKnockBack: 1
-  KnockBackForce: {x: 1.5, y: 0}
+  KnockBackForce: {x: 0.5, y: 0}
   AttackCasting: 0
   CastingTime: 0
   ProjectilePrefabName: 
   ProjectileForce: 0
   AttackSFX: {fileID: 0}
-  VoiceSFX: {fileID: 0}
-  AttackEffectPrefabName: DownSlash_Effect
-  EffectPos: {x: 0.8, y: 0, z: 0}
+  VoiceSFX: {fileID: 8300000, guid: f554225fd12bc48439e9b6915eafe6c8, type: 3}
+  AttackEffectPrefabName: 
+  EffectPos: {x: 0, y: 0, z: 0}
   HitEffectPrefabName: 
   HitEffectPos: {x: 0, y: 0}
   UseCameraShake: 0

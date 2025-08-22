@@ -14,8 +14,10 @@ public class AttackDataCustomInspector : Editor
     #region PropertyField
     private SerializedProperty _attackType; // 스킬타입 대전제
     private SerializedProperty _targetLayer; // 스킬 타겟레이어
-    
+
     // ** 스킬 기본 정보 ** // 
+    //- 스킬 아이디
+    private SerializedProperty _skillId;
     //- 스킬 이름
     private SerializedProperty _attackName;
      
@@ -137,6 +139,7 @@ public class AttackDataCustomInspector : Editor
     #endregion
     private void OnEnable()
     {
+        _skillId = serializedObject.FindProperty("SkillID");
         _attackType = serializedObject.FindProperty("AttackType");
         _weaponType = serializedObject.FindProperty("WeaponType");
         _attackDescription = serializedObject.FindProperty("AttackDescription");
@@ -219,6 +222,7 @@ public class AttackDataCustomInspector : Editor
                 _showBasic = EditorGUILayout.Foldout(_showBasic, "근접타입 기본 정보", true);
                 if (_showBasic)
                 {
+                    EditorGUILayout.PropertyField(_skillId);
                     EditorGUILayout.PropertyField(_targetLayer);
                     EditorGUILayout.PropertyField(_weaponType);
                     EditorGUILayout.PropertyField(_attackIcon);
@@ -335,6 +339,7 @@ public class AttackDataCustomInspector : Editor
                 _showBasic = EditorGUILayout.Foldout(_showBasic, "투사체타입 기본 정보", true);
                 if (_showBasic)
                 {
+                    EditorGUILayout.PropertyField(_skillId);
                     EditorGUILayout.PropertyField(_targetLayer);
                     EditorGUILayout.PropertyField(_weaponType);
                     EditorGUILayout.PropertyField(_attackIcon);
@@ -456,6 +461,7 @@ public class AttackDataCustomInspector : Editor
                 _showBasic = EditorGUILayout.Foldout(_showBasic, "AOE타입 기본 정보", true);
                 if (_showBasic)
                 {
+                    EditorGUILayout.PropertyField(_skillId);
                     EditorGUILayout.PropertyField(_targetLayer);
                     EditorGUILayout.PropertyField(_weaponType);
                     EditorGUILayout.PropertyField(_attackIcon);

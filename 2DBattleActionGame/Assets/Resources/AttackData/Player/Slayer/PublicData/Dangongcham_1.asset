@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c8b4a06f2d518b48b9ac8b6e2aa3211, type: 3}
-  m_Name: Illusion_Slash1
+  m_Name: Dangongcham_1
   m_EditorClassIdentifier: 
+  SkillID: 1
   AttackType: 1
   WeaponType: 1
   AttackDescription: 
@@ -19,37 +20,41 @@ MonoBehaviour:
   TargetLayer:
     serializedVersion: 2
     m_Bits: 8
-  AttackName: "\uD658\uC601\uAC80\uBB34"
-  CoolTime: 6
-  Damage: 10
+  AttackName: "\uB2E8\uACF5\uCC38_1"
+  CoolTime: 1
+  Damage: 15
   HitCount: 1
   AttackHitType: 1
   AttackElement: 0
   SpecialAbility: 0
   SetBuffType: 0
   SetDebuffType: 0
-  StartAttackPoint: {x: -1.5, y: -0.5}
-  AttackRange: {x: 2.2, y: 2}
-  RangeUpOffsetZ: 0.3
-  RangeDownOffsetZ: -0.7
+  StartAttackPoint: {x: -1, y: -0.25}
+  AttackRange: {x: 1.5, y: 2}
+  RangeUpOffsetZ: 0
+  RangeDownOffsetZ: -0.5
   UsingLevelSystem: 1
   AttackCurLevel: 1
-  AttackMaxLevel: 20
+  AttackMaxLevel: 50
   LevelIncreaseValue: 1
   Hp: 0
   Mp: 0
-  CanMove: 0
-  SuperArmor: 1
-  UseKnockBack: 0
-  KnockBackForce: {x: 0, y: 0}
+  CanMove: 1
+  MoveForceX: 4
+  MoveForceY: 0
+  MoveEffectPrefabName: DashEffect
+  MoveEffectPos: {x: -0.5, y: -0.5}
+  SuperArmor: 0
+  UseKnockBack: 1
+  KnockBackForce: {x: 1.5, y: 0}
   AttackCasting: 0
   CastingTime: 0
   ProjectilePrefabName: 
   ProjectileForce: 0
   AttackSFX: {fileID: 0}
-  VoiceSFX: {fileID: 8300000, guid: 0518a291cc28fd64c9b65bb23786cd05, type: 3}
-  AttackEffectPrefabName: illusionSlashVFX1
-  EffectPos: {x: 0.5, y: 0, z: 0}
+  VoiceSFX: {fileID: 0}
+  AttackEffectPrefabName: DownSlash_Effect
+  EffectPos: {x: 0.8, y: 0, z: 0}
   HitEffectPrefabName: 
   HitEffectPos: {x: 0, y: 0}
   UseCameraShake: 0
